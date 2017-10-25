@@ -21,17 +21,23 @@
  */
 
 /**
- * Melzi pin assignments
+ * Anet board pin assignments
  */
 
-#define BOARD_NAME "Melzi"
-
-#ifdef __AVR_ATmega1284P__
-  #define LARGE_FLASH true
+#if defined(__AVR_ATmega1284P__)
+#define VARIANT_STANDARD true
 #endif
 
-#define SANGUINOLOLU_V_1_2
-#include "pins_SANGUINOLOLU_11.h"
+#include "pins_SANGUINOLOLU_12.h"
+
+#undef BOARD_NAME
+#define BOARD_NAME "Anet"
+
+#undef LED_PIN
+#undef FAN_PIN
+
+#define LED_PIN -1
+#define FAN_PIN 4
 
 #if ENABLED(ULTRA_LCD) && ENABLED(NEWPANEL)
   #undef LCD_PINS_RS
@@ -96,3 +102,5 @@
   #endif
 
 #endif
+
+
